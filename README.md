@@ -4,9 +4,10 @@ Given a value in Beats Per Minute, returns a list of rhythmic divisions in Milli
 
 # Usage
 
-'python bpm2ms.py 120'
+```
+python bpm2ms.py 120
 
-'Whole = 2000.00ms
+Whole = 2000.00ms
 Half = 1000.00ms
 Quarter = 500.00ms
 Eigth = 250.00ms
@@ -38,7 +39,8 @@ Triplet 64th = 20.83ms
 Triplet 128th = 10.42ms
 Triplet 256th = 5.21ms
 Triplet 512th = 2.60ms
-Triplet 1024th = 1.30ms'
+Triplet 1024th = 1.30ms
+```
 
 # Credits
 
