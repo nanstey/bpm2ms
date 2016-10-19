@@ -2,7 +2,11 @@
 
 Given a value in Beats Per Minute, returns a list of rhythmic divisions in Milliseconds.
 
+This is especially useful for audio production to find ultra fast compression/gate/delay values that are in time with the music.
+
 # Usage
+
+Run the file using Python. Pass it a value in BPM.
 
 ```
 python bpm2ms.py 120
