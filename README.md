@@ -6,7 +6,9 @@ Given a value in Beats Per Minute, returns a list of rhythmic divisions in Milli
 
 ```
 python bpm2ms.py 120
-
+```
+returns:
+```
 Whole = 2000.00ms
 Half = 1000.00ms
 Quarter = 500.00ms
