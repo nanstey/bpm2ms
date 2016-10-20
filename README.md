@@ -9,7 +9,7 @@ This is especially useful for audio production to find ultra fast compression/ga
 Run the file using Python. Pass it a value in BPM.
 
 ```
-python bpm2ms.py 120
+  python bpm2ms.py 120
 ```
 returns:
 ```
