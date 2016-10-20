@@ -1,35 +1,49 @@
-import sys
-# from music21 import duration
+import sys, argparse
 
-durations = ["Half", "Quarter", "Eigth", "16th", "32th", "64th", "128th", "256th", "512th", "1024th"]
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("bpm", help="input value as beats per minute")
+    parser.add_argument("-a", "--all", help="print all values DEFAULT", action="store_true")
+    parser.add_argument("-s", "--straight", help="print straight values", action="store_true")
+    parser.add_argument("-d", "--dotted", help="print dotted values", action="store_true")
+    parser.add_argument("-t", "--triplet", help="print triplet values", action="store_true")
+    args = parser.parse_args()
 
-sdurs = [] #Straight Durations
-ddurs = [] #Dotted Durations
-tdurs = [] #Triplet Durations
+    if ( args.all | args.straight | args.dotted | args.triplet) == False:
+        args.all = True
 
-bpm = float(sys.argv[1])
-ms = 240000/bpm
+    durations = ["Half", "Quarter", "Eighth", "16th", "32th", "64th", "128th", "256th", "512th", "1024th"]
 
-sdurs.append("%s = %03.2fms" % ("Whole", ms))
+    sdurs = [] #Straight Durations
+    ddurs = [] #Dotted Durations
+    tdurs = [] #Triplet Durations
 
-for x in range(10):
-    tms = ms / 3
-    ms = ms / 2
-    dms = ms * 1.5
-    dur = durations[x]
+    ms = 240000/ float(args.bpm)
 
-    ddurs.append("Dotted %s = %03.2fms" % (dur, dms))
-    sdurs.append("%s = %03.2fms" % (dur, ms))
-    tdurs.append("Triplet %s = %03.2fms" % (dur, tms))
+    sdurs.append("%s = %03.2fms" % ("Whole", ms))
 
-print
-for dur in sdurs:
-    print dur
+    for x in range(10):
+        tms = ms / 3
+        ms = ms / 2
+        dms = ms * 1.5
+        dur = durations[x]
 
-print
-for dur in ddurs:
-    print dur
+        ddurs.append("Dotted %s = %03.2fms" % (dur, dms))
+        sdurs.append("%s = %03.2fms" % (dur, ms))
+        tdurs.append("Triplet %s = %03.2fms" % (dur, tms))
 
-print
-for dur in tdurs:
-    print dur
+    if (args.all | args.straight):
+        print
+        for dur in sdurs:
+            print dur
+    if (args.all | args.dotted):
+        print
+        for dur in ddurs:
+            print dur
+    if (args.all | args.triplet):
+        print
+        for dur in tdurs:
+            print dur
+
+if __name__ == "__main__":
+    main()
